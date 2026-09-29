@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { downloads } from "@/content/site";
+import { CtaButton } from "./CtaButton";
 import { DesktopIcon, PhoneIcon } from "./icons";
 import styles from "./Hero.module.css";
 
@@ -32,14 +33,19 @@ export function Hero() {
         </p>
 
         <div className={styles.actions}>
-          <a href={downloads.desktop.href} className="button button-primary">
-            <DesktopIcon />
-            {downloads.desktop.label}
-          </a>
-          <a href={downloads.mobile.href} className="button button-secondary">
-            <PhoneIcon />
-            {downloads.mobile.label}
-          </a>
+          <CtaButton
+            href={downloads.desktop.href}
+            label={downloads.desktop.label}
+            meta={downloads.desktop.meta}
+            icon={<DesktopIcon />}
+          />
+          <CtaButton
+            href={downloads.mobile.href}
+            label={downloads.mobile.label}
+            meta={downloads.mobile.meta}
+            icon={<PhoneIcon />}
+            variant="secondary"
+          />
         </div>
 
         <p className={styles.note}>Nothing irreversible runs without your tap.</p>

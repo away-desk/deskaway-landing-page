@@ -1,5 +1,6 @@
 import { downloads } from "@/content/site";
-import { DesktopIcon, DownloadIcon, PhoneIcon } from "./icons";
+import { CtaButton } from "./CtaButton";
+import { DesktopIcon, PhoneIcon } from "./icons";
 import styles from "./Download.module.css";
 
 const apps = [
@@ -36,13 +37,14 @@ export function Download() {
               <h3 className={styles.platform}>DeskAway for {app.platform}</h3>
               <p className={styles.text}>{app.text}</p>
               <p className={styles.detail}>{app.detail}</p>
-              <a
+              <CtaButton
                 href={app.href}
-                className={`button ${app.primary ? "button-primary" : "button-secondary"} ${styles.button}`}
-              >
-                <DownloadIcon />
-                {app.label}
-              </a>
+                label={app.label}
+                meta={app.meta}
+                icon={app.icon}
+                variant={app.primary ? "primary" : "secondary"}
+                className={styles.button}
+              />
             </article>
           ))}
         </div>

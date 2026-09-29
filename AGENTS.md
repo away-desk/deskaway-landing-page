@@ -55,6 +55,9 @@ sizes that should scale with the viewport use `clamp()`.
 - Facts mirrored from the plan files (build days, repos, decisions, numbers)
   live in `content/`, so they are updated in one place. All outbound links are
   in `content/site.ts`. Section-specific copy can stay in its component.
+- Every call to action is a `CtaButton` (`components/CtaButton.tsx`): primary
+  for the one next step, secondary for the alternative. Don't hand-style a
+  link to look like a button.
 - Respect `prefers-reduced-motion`; "in progress" is shown by a pulse, not a
   colour.
 

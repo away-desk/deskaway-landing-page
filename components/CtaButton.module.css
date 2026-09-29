@@ -1,0 +1,127 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 3.5rem;
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: var(--hairline) solid transparent;
+  text-decoration: none;
+  text-align: left;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+.button:active {
+  transform: translateY(0.0625rem);
+}
+
+.button:focus-visible {
+  outline: calc(var(--hairline) * 2) solid var(--color-text);
+  outline-offset: 0.2rem;
+  border-radius: var(--radius-md);
+}
+
+/* Leading platform icon, set in its own tile. */
+.icon {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  min-width: 0;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.meta {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  line-height: 1.2;
+  opacity: 0.68;
+  white-space: nowrap;
+}
+
+.trailing {
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  padding-left: var(--space-2);
+  font-size: var(--text-md);
+  transition: transform var(--duration) var(--ease);
+}
+
+.button:hover .download {
+  transform: translateY(0.15em);
+}
+
+.button:hover .arrow {
+  transform: translateX(0.2em);
+}
+
+/* Primary — solid, the one thing to do next. */
+.primary {
+  background: var(--color-button-bg);
+  color: var(--color-button-text);
+  box-shadow: 0 0.5rem 1.5rem -0.75rem color-mix(in srgb, var(--color-button-bg) 55%, transparent);
+}
+
+.primary:hover {
+  background: var(--color-button-hover);
+}
+
+.primary .icon {
+  background: color-mix(in srgb, var(--color-button-text) 8%, transparent);
+}
+
+/* Secondary — an outline that sits on photos and surfaces alike. */
+.secondary {
+  background: var(--color-glass);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
+}
+
+.secondary:hover {
+  border-color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+}
+
+.secondary .icon {
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+/* Compact — navbar and tight spots: one line, no icon tile. */
+.sm {
+  min-height: 2.5rem;
+  padding: var(--space-2) var(--space-4);
+  gap: var(--space-2);
+  box-shadow: none;
+}
+
+.sm .label {
+  font-size: var(--text-xs);
+}
+
+.sm .trailing {
+  padding-left: 0;
+  font-size: var(--text-sm);
+}

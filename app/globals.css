@@ -262,56 +262,6 @@ html {
   text-wrap: pretty;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  min-height: 3.25rem;
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-pill);
-  border: var(--hairline) solid transparent;
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  white-space: nowrap;
-  transition:
-    background-color var(--duration) var(--ease),
-    border-color var(--duration) var(--ease),
-    transform var(--duration) var(--ease);
-}
-
-.button:active {
-  transform: translateY(0.0625rem);
-}
-
-.button svg {
-  width: 1.15em;
-  height: 1.15em;
-  flex-shrink: 0;
-}
-
-.button-primary {
-  background: var(--color-button-bg);
-  color: var(--color-button-text);
-}
-
-.button-primary:hover {
-  background: var(--color-button-hover);
-}
-
-.button-secondary {
-  background: var(--color-glass);
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
-  backdrop-filter: blur(0.75rem);
-}
-
-.button-secondary:hover {
-  border-color: var(--color-text);
-}
-
 .code-inline {
   font-family: var(--font-code);
   font-size: 0.9em;
