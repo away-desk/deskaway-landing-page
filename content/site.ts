@@ -8,12 +8,14 @@ export const downloads = {
     href: `${GITHUB_ORG}/deskaway-desktop/releases/latest`,
     label: "Download desktop app",
     platform: "Windows",
+    meta: "For Windows · MSIX",
     detail: "MSIX installer · signed · auto-updates",
   },
   mobile: {
     href: `${GITHUB_ORG}/deskaway-android/releases/latest`,
     label: "Download mobile app",
     platform: "Android",
+    meta: "For Android · APK",
     detail: "APK · install directly in V1",
   },
 } as const;

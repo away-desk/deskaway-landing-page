@@ -61,11 +61,6 @@
   color: var(--color-text);
 }
 
-.cta {
-  min-height: 2.5rem;
-  padding-block: var(--space-2);
-  font-size: var(--text-xs);
-}
 
 .menu {
   display: none;
@@ -103,15 +98,17 @@
   box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--color-bg) 60%, transparent);
 }
 
-.sheet > a:not(:global(.button)) {
+.sheet > a {
   padding: var(--space-3) var(--space-2);
   color: var(--color-text);
   text-decoration: none;
   border-bottom: var(--hairline) solid var(--color-border);
 }
 
-.sheet :global(.button) {
-  margin-top: var(--space-2);
+.sheetActions {
+  margin-top: var(--space-3);
+  display: grid;
+  gap: var(--space-2);
 }
 
 @media (max-width: 56rem) {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { downloads, navLinks } from "@/content/site";
-import { DownloadIcon, MenuIcon } from "./icons";
+import { CtaButton } from "./CtaButton";
+import { DesktopIcon, MenuIcon, PhoneIcon } from "./icons";
 import styles from "./Navbar.module.css";
 
 export function Navbar() {
@@ -22,10 +23,7 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a href="#download" className={`button button-primary ${styles.cta}`}>
-          <DownloadIcon />
-          Download
-        </a>
+        <CtaButton href="#download" label="Download" size="sm" className={styles.cta} />
 
         {/* No-JS mobile menu. */}
         <details className={styles.menu}>
@@ -38,12 +36,21 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href={downloads.desktop.href} className="button button-primary">
-              {downloads.desktop.label}
-            </a>
-            <a href={downloads.mobile.href} className="button button-secondary">
-              {downloads.mobile.label}
-            </a>
+            <div className={styles.sheetActions}>
+              <CtaButton
+                href={downloads.desktop.href}
+                label={downloads.desktop.label}
+                meta={downloads.desktop.meta}
+                icon={<DesktopIcon />}
+              />
+              <CtaButton
+                href={downloads.mobile.href}
+                label={downloads.mobile.label}
+                meta={downloads.mobile.meta}
+                icon={<PhoneIcon />}
+                variant="secondary"
+              />
+            </div>
           </div>
         </details>
       </nav>
