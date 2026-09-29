@@ -1,0 +1,130 @@
+.bar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--nav-height);
+  background: var(--color-glass);
+  border-bottom: var(--hairline) solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  backdrop-filter: saturate(1.2) blur(1rem);
+  -webkit-backdrop-filter: saturate(1.2) blur(1rem);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.logoPlate {
+  display: inline-grid;
+  place-items: center;
+  padding: 0.2rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-logo-plate);
+}
+
+.logo {
+  height: 1.9rem;
+  width: auto;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.02em;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.links a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease);
+}
+
+.links a:hover {
+  color: var(--color-text);
+}
+
+.cta {
+  min-height: 2.5rem;
+  padding-block: var(--space-2);
+  font-size: var(--text-xs);
+}
+
+.menu {
+  display: none;
+  position: relative;
+}
+
+.menu summary {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: var(--text-xl);
+  border-radius: var(--radius-md);
+  border: var(--hairline) solid var(--color-border);
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.sheet {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-3));
+  width: min(20rem, calc(100vw - var(--gutter) * 2));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: var(--hairline) solid var(--color-border);
+  box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--color-bg) 60%, transparent);
+}
+
+.sheet > a:not(:global(.button)) {
+  padding: var(--space-3) var(--space-2);
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: var(--hairline) solid var(--color-border);
+}
+
+.sheet :global(.button) {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 56rem) {
+  .links {
+    display: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}

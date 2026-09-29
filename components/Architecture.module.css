@@ -1,0 +1,244 @@
+.diagram {
+  margin-top: var(--space-7);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(4rem, 0.45fr) minmax(0, 1fr) minmax(4rem, 0.45fr) minmax(0, 1fr);
+  grid-template-areas:
+    "phone l1 relay l2 desktop"
+    ".     .  l3    .  .      "
+    ".     .  agent .  .      ";
+  align-items: center;
+}
+
+.phone { grid-area: phone; }
+.relay { grid-area: relay; }
+.desktop { grid-area: desktop; }
+.agent { grid-area: agent; }
+.l1 { grid-area: l1; }
+.l2 { grid-area: l2; }
+.l3 { grid-area: l3; }
+
+.node {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: var(--hairline) solid var(--color-border);
+  height: 100%;
+}
+
+.relay {
+  border-color: var(--color-border-strong);
+}
+
+.nodeName {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.nodeStack {
+  font-family: var(--font-code);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.nodePoints {
+  margin-top: var(--space-4);
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.nodePoints li {
+  padding-left: var(--space-4);
+  position: relative;
+}
+
+.nodePoints li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5em;
+  height: var(--hairline);
+  background: var(--color-text-muted);
+}
+
+/* Connectors: a hairline with an animated dash to suggest traffic in both directions. */
+.link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  height: 3rem;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: var(--hairline);
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-border-strong) 0 0.4rem,
+    transparent 0.4rem 0.7rem
+  );
+  background-size: 0.7rem 100%;
+  animation: flow 1.2s linear infinite;
+}
+
+.linkLabel {
+  position: relative;
+  padding: 0.15em 0.6em;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  border: var(--hairline) solid var(--color-border);
+  font-family: var(--font-code);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.vertical {
+  height: 4.5rem;
+}
+
+.vertical::before {
+  inset: 0 auto 0 50%;
+  width: var(--hairline);
+  height: auto;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-border-strong) 0 0.4rem,
+    transparent 0.4rem 0.7rem
+  );
+  background-size: 100% 0.7rem;
+  animation-name: flow-vertical;
+}
+
+@keyframes flow {
+  to {
+    background-position: 0.7rem 0;
+  }
+}
+
+@keyframes flow-vertical {
+  to {
+    background-position: 0 0.7rem;
+  }
+}
+
+.stores {
+  margin-top: var(--space-6);
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: var(--space-3);
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: var(--hairline) dashed var(--color-border-strong);
+}
+
+.storeName {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+}
+
+.storeNote {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.path {
+  margin-top: var(--space-8);
+}
+
+.pathTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-xl);
+}
+
+.pathLede {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  max-width: var(--measure);
+}
+
+.hops {
+  margin-top: var(--space-6);
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-5) var(--space-6);
+  counter-reset: hop;
+}
+
+.hop {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.hopIndex {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: var(--hairline) solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+}
+
+.hopName {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  padding-top: 0.3em;
+}
+
+.hopText {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 60rem) {
+  /* Same topology, folded: both devices on top, each with its own line down to the relay. */
+  .diagram {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "phone desktop"
+      "l1    l2"
+      "relay relay"
+      "l3    l3"
+      "agent agent";
+    column-gap: var(--space-3);
+  }
+
+  .node {
+    padding: var(--space-4);
+  }
+
+  .link:not(.vertical) {
+    height: 4.5rem;
+  }
+
+  .link:not(.vertical)::before {
+    inset: 0 auto 0 50%;
+    width: var(--hairline);
+    height: auto;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-border-strong) 0 0.4rem,
+      transparent 0.4rem 0.7rem
+    );
+    background-size: 100% 0.7rem;
+    animation-name: flow-vertical;
+  }
+}

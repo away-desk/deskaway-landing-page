@@ -1,0 +1,59 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-display);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+.done {
+  color: var(--color-status-done);
+}
+
+.partial {
+  color: var(--color-status-partial);
+}
+
+.failed {
+  color: var(--color-status-failed);
+}
+
+.idle {
+  color: var(--color-status-idle);
+}
+
+/* "In progress" is movement, not a colour. */
+.progress {
+  color: var(--color-text);
+}
+
+.pulse {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin: 0.275em;
+  border-radius: 50%;
+  background: var(--color-pulse);
+  animation: pulse 1.6s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
