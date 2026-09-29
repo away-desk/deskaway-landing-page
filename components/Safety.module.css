@@ -1,0 +1,29 @@
+.grid {
+  margin-top: var(--space-7);
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: var(--hairline);
+  background: var(--color-border);
+  border: var(--hairline) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.card {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--color-bg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.text {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
